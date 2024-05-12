@@ -1,8 +1,11 @@
+
 import styled from "styled-components";
 
 
 export const Main = styled.main`
-    padding: 8rem 0rem 0rem 0rem;`
+    /* padding: 8rem 0rem 0rem 0rem; */
+    height: 100vh;
+    `
 
 
 
@@ -22,14 +25,14 @@ export const HeaderStyle = styled.header`
     
     img{
         width: 200px;
-        height: 200px;
+        height: 150px;
         filter: drop-shadow(1px 0px 0px red);
-    };`;
+    }`;
 
 
 export const ProductListStyle = styled.section`
 
-padding: 1rem 1rem;
+padding: 8rem 1rem;
 height: 82vh;
 display: flex;
 flex-direction: column;
@@ -55,9 +58,9 @@ ul{
         min-width: 200px;
         min-height: 300px;
         width: 200px;
-        height: 300px;
-        background-color: white;
-        box-shadow: 10px 10px 15px;
+        height: 350px;
+        /* background-color: white; */
+        /* box-shadow: 10px 10px 15px; */
         rotate: x 20deg;
         border-radius: 3%;
         
@@ -65,7 +68,7 @@ ul{
             position: absolute;
             width: 70px;
             height: 70px;
-            bottom: 5px;
+            bottom: 62px;
             right: 5px;
             background: red;
             border-radius: 50%;
@@ -76,22 +79,9 @@ ul{
             box-shadow: 0px 1px 6px black;
         }
         
-        img {
-            width: 100%;
-            height: 100%;
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 2%;
-            
-        }
+       
         
-        div {
-            width: 99%;
-            height: 99.5%;
-            background: #e9e9e7;
-            
-            
-        }
+       
     }
     
     li:hover {
@@ -101,6 +91,8 @@ ul{
     };
 }
     `
+
+
 
 export const SearchDiv = styled.div`
     display: flex;
@@ -113,3 +105,70 @@ export const SearchDiv = styled.div`
     }
     
   `;
+
+
+export const BuyButton = styled.button`
+  background-color: red;
+  border: none;
+    height: 25px;
+    width: 70px;
+    color: white;
+    border-radius: 10px;
+  `;
+
+export const ComicsCardBtn = styled.div`
+
+height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  
+  `;
+
+
+export const ComicsDiv = styled.div`
+            width: 200px;
+            height: 300px;
+            background: #e9e9e7;
+            box-shadow: 10px 10px 15px;
+
+            div{
+                width: 202px;
+    height: 302px;
+    border-radius: 2%;
+    background-color: white;
+            
+            }
+
+            img {
+            width: 200px;
+            height: 300px;
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 2%;
+            
+        }
+            `;
+
+
+export const CartDiv = styled.div`
+
+    height: 54px;
+    display: flex;
+    width: 44px;
+    align-items: center;
+    justify-content: center;
+    
+    p{
+        font-weight: 900;
+    top: -11px;
+    position: relative;
+    right: 18px;
+    color: green;
+    font-family: monospace;
+    font-size: 25px;
+    }`
+    ;
+
+

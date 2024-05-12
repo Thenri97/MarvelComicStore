@@ -2,7 +2,8 @@ import spiderMan from "./../../assets/spiderman1.jpg"
 import spiderGirl from "./../../assets/SpiderGirl.jpg"
 import pricetag from "./../../assets/pricetag.png"
 import { FaSearch } from "react-icons/fa";
-import { SearchDiv } from "../../scripts/styles";
+import { LiaCartPlusSolid } from "react-icons/lia";
+import { BuyButton, ComicsCardBtn, ComicsDiv, SearchDiv } from "../../scripts/styles";
 
 
 export const ProductList = () => {
@@ -31,6 +32,10 @@ export const ProductList = () => {
         id: 6
     },];
 
+
+
+
+
     return (
         <>
             {/* <div> */}
@@ -49,9 +54,20 @@ export const ProductList = () => {
                     comicList.map((comic) => (
                         <li key={comic.id}>
                             <span>R$ 19,99</span>
-                            <div>
-                                <img src={comic.imagem} alt="" />
-                            </div>
+
+                            <ComicsDiv>
+                                <div>
+                                    <img src={comic.imagem} alt="comic cover" />
+                                </div>
+                            </ComicsDiv>
+
+
+                            <ComicsCardBtn>
+                              
+                                <BuyButton>buy</BuyButton>
+                                <LiaCartPlusSolid size={32} />
+                            </ComicsCardBtn>
+
                         </li>
                     ))
                 }
