@@ -3,25 +3,41 @@ import { Header } from './components/header'
 import { ProductList } from './components/productList'
 import { ProductListStyle } from './scripts/styles'
 import { DefaultTemplate } from './defaultTemplate'
+import { CartModal } from './components/cartModal'
+import { CartProvider } from './context/CartContext'
 
 
 // import {Title} from './scripts/styles'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const handleOpenCart = () => {
+    setIsCartOpen(true);
+  };
+
+  const handleCloseCart = () => {
+    setIsCartOpen(false);
+  };
+
+
+
 
   return (
     <>
+      <CartProvider>
 
-      <DefaultTemplate>
+        <DefaultTemplate handleOpenCart={handleOpenCart} handleCloseCart={handleCloseCart}>
 
-        <ProductListStyle>
-          <ProductList />
-        </ProductListStyle>
+          <ProductListStyle>
+            <ProductList />
+          </ProductListStyle>
+          <CartModal isOpen={isCartOpen} onClose={handleCloseCart} />
+        </DefaultTemplate>
 
-      </DefaultTemplate>
-
-
+      </CartProvider>
 
     </>
   )

@@ -4,7 +4,9 @@ import { BiAlignMiddle } from "react-icons/bi";
 import { RiShoppingCart2Line } from "react-icons/ri";
 
 
-export const Header = () => {
+export const Header = ({handleOpenCart}) => {
+
+    
 
     return (
         <>
@@ -13,8 +15,8 @@ export const Header = () => {
                 <BiAlignMiddle size={32} />
                 <img src={logo} alt="" />
 
-                <CartDiv>
-                <RiShoppingCart2Line size={32} />
+                <CartDiv onClick={handleOpenCart}>
+                <RiShoppingCart2Line size={32} onClick={handleOpenCart}/>
                     <p>1 </p>
                 </CartDiv>
 

@@ -3,36 +3,21 @@ import spiderGirl from "./../../assets/SpiderGirl.jpg"
 import pricetag from "./../../assets/pricetag.png"
 import { FaSearch } from "react-icons/fa";
 import { LiaCartPlusSolid } from "react-icons/lia";
-import { BuyButton, ComicsCardBtn, ComicsDiv, SearchDiv } from "../../scripts/styles";
+import { BuyButton, ComicsCardBtn, ComicsDiv, RareP, SearchDiv } from "../../scripts/styles";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "../../context/CartContext";
+import { comicList } from "../../scripts/database";
 
 
 export const ProductList = () => {
 
-    const comicList = [{
-        imagem: "https://i.annihil.us/u/prod/marvel/i/mg/0/03/66212c332b665.jpg",
-        id: 1
+ 
+    const { currentID, setCurrentID } = useContext(CartContext);
 
-    }, {
-        imagem: "https://i.annihil.us/u/prod/marvel/i/mg/a/30/56f46483efc4f.jpg",
-        id: 2
-    },
-    {
-        imagem: "https://i.annihil.us/u/prod/marvel/i/mg/5/70/66212c2b2c71a.jpg",
-        id: 3
-    },
-    {
-        imagem: "https://i.annihil.us/u/prod/marvel/i/mg/7/20/6638ef6da2288.jpg",
-        id: 4
-    },
-    {
-        imagem: "https://i.annihil.us/u/prod/marvel/i/mg/3/00/66212b10594ed.jpg",
-        id: 5
-    }, {
-        imagem: "https://i.annihil.us/u/prod/marvel/i/mg/3/00/66212b10594ed.jpg",
-        id: 6
-    },];
+    useEffect(() => {
+        console.log(currentID)
 
-
+    },[currentID])
 
 
 
@@ -43,7 +28,7 @@ export const ProductList = () => {
             <SearchDiv>
 
                 <input type="text" />
-                <FaSearch size={32} />
+                <FaSearch size={32} color="red" />
             </SearchDiv>
 
 
@@ -55,7 +40,8 @@ export const ProductList = () => {
                         <li key={comic.id}>
                             <span>R$ 19,99</span>
 
-                            <ComicsDiv>
+                                {comic.rarity === "rare" ? <RareP>RARE</RareP> : null}
+                            <ComicsDiv rarity={comic.rarity}>
                                 <div>
                                     <img src={comic.imagem} alt="comic cover" />
                                 </div>
@@ -63,9 +49,9 @@ export const ProductList = () => {
 
 
                             <ComicsCardBtn>
-                              
-                                <BuyButton>buy</BuyButton>
-                                <LiaCartPlusSolid size={32} />
+
+                                <BuyButton>BUY</BuyButton>
+                                <LiaCartPlusSolid size={32} color="red" onClick={() => setCurrentID(comic.id)}/>
                             </ComicsCardBtn>
 
                         </li>

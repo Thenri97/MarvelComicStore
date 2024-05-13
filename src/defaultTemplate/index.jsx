@@ -2,11 +2,11 @@ import { Header } from "../components/header"
 import { Main } from "../scripts/styles"
 
 
-export const DefaultTemplate = ({ children }) => {
+export const DefaultTemplate = ({ children,handleOpenCart,handleCloseCart }) => {
     return (
         <>
 
-            <Header />
+            <Header handleOpenCart={handleOpenCart}/>
             {/* <main> */}
             <Main>
 

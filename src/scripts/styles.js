@@ -1,18 +1,19 @@
 
 import styled from "styled-components";
-
+import backgroundImage from "./../assets/back.jpg"
 
 export const Main = styled.main`
     /* padding: 8rem 0rem 0rem 0rem; */
-    height: 100vh;
-    `
+    height: 85vh;
+    padding: 15vh 0vh;
+    `;
 
 
 
 
 export const HeaderStyle = styled.header`
-    position: relative;
-    height: 15vh;
+
+       height: 15vh;
     width: 100vw;
     display: flex;
     justify-content: space-between;
@@ -22,6 +23,8 @@ export const HeaderStyle = styled.header`
     box-sizing: border-box;
     z-index: 1;
     background: white;
+    box-shadow: 1px 3px 21px;
+
     
     img{
         width: 200px;
@@ -32,18 +35,26 @@ export const HeaderStyle = styled.header`
 
 export const ProductListStyle = styled.section`
 
-padding: 8rem 1rem;
-height: 82vh;
+
+background-image: url(${backgroundImage});
+background-color: rgb(255 249 249 / 70%);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  
+height: 85vh;
 display: flex;
+justify-content: center;
 flex-direction: column;
 align-items: center;
 
-background-color: gold;
+/* background-color: white; */
 ul{
 
     list-style: none;
     gap: 3rem;
-    height: 100%;
+    height: 60%;
     width: 100vw;
     overflow: scroll;
     display: flex;
@@ -77,6 +88,8 @@ ul{
             justify-content: center;
             color: white;
             box-shadow: 0px 1px 6px black;
+           ;
+            
         }
         
        
@@ -102,19 +115,26 @@ export const SearchDiv = styled.div`
     input{
         height: 26px;
          width: 50vw;
+         border: 1px solid red;
+    border-radius: 27px;
     }
     
   `;
 
 
 export const BuyButton = styled.button`
-  background-color: red;
-  border: none;
-    height: 25px;
-    width: 70px;
-    color: white;
-    border-radius: 10px;
-  `;
+  background-color: white;
+  border: 1px solid red;
+  height: 25px;
+  width: 70px;
+  color: red;
+  border-radius: 10px;
+
+  &:hover {
+    background-color: red;
+    color: white; // Se quiser mudar a cor do texto também quando hover
+  }
+`;
 
 export const ComicsCardBtn = styled.div`
 
@@ -131,7 +151,9 @@ export const ComicsDiv = styled.div`
             width: 200px;
             height: 300px;
             background: #e9e9e7;
-            box-shadow: 10px 10px 15px;
+            /* box-shadow: 10px 10px 15px; */
+            /* box-shadow:${props => ` 0px 1px 6px ${props.rarity}`}; */
+            box-shadow: ${props => props.rarity === 'rare' ? '11px 9px 20px green' : '11px 9px 20px black'};
 
             div{
                 width: 202px;
@@ -165,10 +187,32 @@ export const CartDiv = styled.div`
     top: -11px;
     position: relative;
     right: 18px;
-    color: green;
+    background: red;
+    border-radius: 10px;
+    color: white;
     font-family: monospace;
     font-size: 25px;
     }`
     ;
+
+
+export const RareP = styled.p`
+   
+   font-family: monospace;
+    font-weight: 900;
+    background: green;
+    width: 35px;
+    color: white;
+   `;
+
+
+
+
+
+
+
+
+
+
 
 
