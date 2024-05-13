@@ -66,6 +66,8 @@ ul{
     // background-image: url(../../assets/backgroundspiderman.png);
     
     li {
+
+        /* position: relative; */
         min-width: 200px;
         min-height: 300px;
         width: 200px;
@@ -74,6 +76,10 @@ ul{
         /* box-shadow: 10px 10px 15px; */
         rotate: x 20deg;
         border-radius: 3%;
+
+        /* img:hover{
+            border: 1px solid lightgrey;
+        } */
         
         span{
             position: absolute;
@@ -96,12 +102,13 @@ ul{
         
        
     }
-    
+ /*     
     li:hover {
-        // transform: rotate(0deg);
+       
+        border: 2px solid black;
         
         rotate: x 0deg;
-    };
+    }; */
 }
     `
 

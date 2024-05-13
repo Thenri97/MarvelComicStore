@@ -65,6 +65,7 @@ gap: 0.5rem;
 height: 60%;
 
 li{
+    gap: 0.5rem;
     display: flex;
     padding: 0.5rem;
     justify-content: space-between;
@@ -73,9 +74,11 @@ li{
 
     div{
         width: 133px;
-    display: flex;
-    justify-content: space-between;
- }
+        justify-content: flex-end;
+     display: flex;
+    }
+
+ 
 
   input{
     width: 20px;

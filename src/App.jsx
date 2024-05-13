@@ -5,6 +5,7 @@ import { ProductListStyle } from './scripts/styles'
 import { DefaultTemplate } from './defaultTemplate'
 import { CartModal } from './components/cartModal'
 import { CartProvider } from './context/CartContext'
+import { MarvelProvider } from './context/DatabaseContex'
 
 
 // import {Title} from './scripts/styles'
@@ -27,8 +28,10 @@ function App() {
 
   return (
     <>
+    <MarvelProvider>
+      
       <CartProvider>
-
+    
         <DefaultTemplate handleOpenCart={handleOpenCart} handleCloseCart={handleCloseCart}>
 
           <ProductListStyle>
@@ -38,6 +41,7 @@ function App() {
         </DefaultTemplate>
 
       </CartProvider>
+    </MarvelProvider>
 
 
 

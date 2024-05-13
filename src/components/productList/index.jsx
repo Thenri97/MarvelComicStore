@@ -5,16 +5,22 @@ import { FaSearch } from "react-icons/fa";
 import { LiaCartPlusSolid } from "react-icons/lia";
 import { BuyButton, ComicsCardBtn, ComicsDiv, RareP, SearchDiv } from "../../scripts/styles";
 import { useContext, useEffect, useState } from "react";
-import { CartContext } from "../../context/CartContext";
 import { comicList } from "../../scripts/database";
+import { marvelApi } from "../../scripts/api";
+import { MarvelContext } from "../../context/DatabaseContex";
+import { CartContext } from "../../context/CartContext";
 
 
 export const ProductList = () => {
 
  
-    const { currentID, setCurrentID } = useContext(CartContext);
+    const {setCurrentID } = useContext(CartContext); 
+    const { currentID } = useContext(CartContext); 
 
-    const {addToCart} = useContext(CartContext);
+    // const {addToCart} = useContext(CartContex);
+    const {addToCartItem} = useContext(CartContext)
+
+    const {newComicList} = useContext(MarvelContext);
 
  
     useEffect(() => {
@@ -22,6 +28,9 @@ export const ProductList = () => {
 
     },[currentID])
 
+
+
+   
 
 
     return (
@@ -36,7 +45,7 @@ export const ProductList = () => {
             <ul>
 
                 {
-                    comicList.map((comic) => (
+                    newComicList.map((comic) => (
                         <li key={comic.id}>
                             
                             <span>{`$ ${comic.price}`}</span>
@@ -51,8 +60,8 @@ export const ProductList = () => {
 
                             <ComicsCardBtn  onClick={() => setCurrentID(comic.id)}>
 
-                                <BuyButton>BUY</BuyButton>
-                                <LiaCartPlusSolid size={32} color="red" onClick={() => addToCart(currentID)}/>
+                                <BuyButton>Details</BuyButton>
+                                <LiaCartPlusSolid size={32} color="red" onClick={() => addToCartItem(comic.id)}/>
                             </ComicsCardBtn>
 
                         </li>
