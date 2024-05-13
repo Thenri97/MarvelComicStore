@@ -3,12 +3,12 @@ import spiderGirl from "./../../assets/SpiderGirl.jpg"
 import pricetag from "./../../assets/pricetag.png"
 import { FaSearch } from "react-icons/fa";
 import { LiaCartPlusSolid } from "react-icons/lia";
-import { BuyButton, ComicsCardBtn, ComicsDiv, RareP, SearchDiv } from "../../scripts/styles";
 import { useContext, useEffect, useState } from "react";
 import { comicList } from "../../scripts/database";
 import { marvelApi } from "../../scripts/api";
 import { MarvelContext } from "../../context/DatabaseContex";
 import { CartContext } from "../../context/CartContext";
+import { BuyButton, ComicsCardBtn, ComicsDiv, RareP, SearchDiv } from "./styles";
 
 
 export const ProductList = () => {
@@ -58,7 +58,7 @@ export const ProductList = () => {
                             </ComicsDiv>
 
 
-                            <ComicsCardBtn  onClick={() => setCurrentID(comic.id)}>
+                            <ComicsCardBtn onClick={() => setCurrentID(comic.id)}>
 
                                 <BuyButton>Details</BuyButton>
                                 <LiaCartPlusSolid size={32} color="red" onClick={() => addToCartItem(comic.id)}/>

@@ -13,7 +13,7 @@ export const CartModal = ({ isOpen, onClose }) => {
     const { cartItems } = useContext(CartContext);
     const { removeFromCart } = useContext(CartContext);
     const { cartTotal } = useContext(CartContext);
-    const [total, setTotal] = useState(cartTotal());
+    const [total, setTotal] = useState();
     const { discount } = useContext(CartContext);
     const { setDiscount } = useContext(CartContext);
     const { handleDiscount } = useContext(CartContext);
@@ -26,7 +26,7 @@ export const CartModal = ({ isOpen, onClose }) => {
         const commonDiscount = "COMMON15%";
 
         const rareComic = cartItems.find(comic => comic.rarity === "rare")
-        const commonComic = cartItems.find(comic => comic.rarity === "commun")
+        const commonComic = cartItems.find(comic => comic.rarity === "common")
 
 
         if (discount === rareDiscount && rareComic) {
@@ -47,6 +47,7 @@ export const CartModal = ({ isOpen, onClose }) => {
 
 
     useEffect(() => {
+        
         // Verificar se o carrinho contém uma comic rara
         const hasRareComic = cartItems.some(item => item.rarity === "rare");
 
@@ -112,7 +113,7 @@ return (
                 </div>
             </CupomDiv>
             <TotalDiv>
-                <p>Total: R${total}</p>
+                <p>Total: ${total}</p>
                 <button>Checkout</button>
             </TotalDiv>
 

@@ -55,25 +55,26 @@ export const CartProvider = ({ children }) => {
 
     };
 
-
     const cartTotal = (discountType = null) => {
         // Verifique se o carrinho está vazio
         if (cartItems.length === 0) {
             return 0; // Se estiver vazio, o total é zero
         }
-
+    
         // Use o método reduce para somar os preços de todos os itens no carrinho
         const total = cartItems.reduce((accumulator, currentItem) => {
             return accumulator + currentItem.price;
         }, 0);
 
+        
+    
         // Aplicar desconto se um tipo de desconto for especificado
         if (discountType === "RARECOMICS20%") {
-            return total * 0.8; // Aplica 20% de desconto para "rareDiscount"
+            return total * 0.8; // Aplica 20% de desconto para "RARECOMICS20%"
         } else if (discountType === "COMMON15%") {
-            return total * 0.85; // Aplica 15% de desconto para "commonDiscount"
+            return total * 0.85; // Aplica 15% de desconto para "COMMON15%"
         }
-
+    
         return total; // Retorna o total sem desconto se nenhum tipo de desconto for especificado
     };
 
@@ -82,6 +83,10 @@ export const CartProvider = ({ children }) => {
 
         setCartLength(cartItems.length)
         //   alert(cartLength)
+
+        if(cartLength === 0){
+            setDiscount(0)
+        }
 
 
     }, [cartItems])

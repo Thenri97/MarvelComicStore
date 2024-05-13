@@ -10,8 +10,8 @@ export const useMarvel = () => useContext(MarvelContext);
 
 export const MarvelProvider = ({ children }) => {
     const [comics, setComics] = useState([]);
-    const [newComicList,setNewComicList] = useState([]);
-    
+    const [newComicList, setNewComicList] = useState([]);
+
 
     useEffect(() => {
         const getCovers = async () => {
@@ -22,7 +22,7 @@ export const MarvelProvider = ({ children }) => {
                         apikey: 'f08e1dad392af459458fd0ce81c909f6',
                         hash: 'f299223d8ece7d3de4e41a1cac9f8a48',
                         offset: 0,
-                        limit: 10
+                        limit: 99
                     }
                 });
                 // console.log(data.data.results);
@@ -40,27 +40,30 @@ export const MarvelProvider = ({ children }) => {
 
     useEffect(() => {
 
-        let minPrice = 9.99;
-        let maxPrice = 99.99;
+        let minPrice = 10;
+        let maxPrice = 100;
 
-    
+
+        const randomPrice = (Math.random() * (maxPrice - minPrice) + minPrice).toFixed(2);
+        const numericPrice = parseFloat(randomPrice);
+
         
         setNewComicList(comics.map(comic => ({
+            price: numericPrice,
             imagem: `${comic.thumbnail.path}.${comic.thumbnail.extension}`,
             id: comic.id,
-            price:(Math.random() * (maxPrice - minPrice) + minPrice).toFixed(2),
             rarity: "common"
         })));
-        
+
         console.log(newComicList);
-    },[comics])
+    }, [comics])
 
 
 
-   
+
 
     return (
-        <MarvelContext.Provider value={{ comics,newComicList}}>
+        <MarvelContext.Provider value={{ comics, newComicList }}>
             {children}
         </MarvelContext.Provider>
     );

@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import { Header } from './components/header'
 import { ProductList } from './components/productList'
-import { ProductListStyle } from './scripts/styles'
+import { PagesDiv, ProductListStyle } from './scripts/styles'
 import { DefaultTemplate } from './defaultTemplate'
 import { CartModal } from './components/cartModal'
 import { CartProvider } from './context/CartContext'
 import { MarvelProvider } from './context/DatabaseContex'
 
 
-// import {Title} from './scripts/styles'
 
 function App() {
 
@@ -36,7 +35,19 @@ function App() {
 
           <ProductListStyle>
             <ProductList />
+      
+              <PagesDiv>
+              <span>Pages:</span>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>next</span>
+              </PagesDiv>
+            
           </ProductListStyle>
+
+
+
           <CartModal isOpen={isCartOpen} onClose={handleCloseCart} />
         </DefaultTemplate>
 

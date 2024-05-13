@@ -1,5 +1,5 @@
 import { Header } from "../components/header"
-import { Main } from "../scripts/styles"
+import { Main } from "./styles"
 
 
 export const DefaultTemplate = ({ children,handleOpenCart,handleCloseCart }) => {
