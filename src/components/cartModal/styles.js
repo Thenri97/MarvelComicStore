@@ -29,6 +29,7 @@ export const ModalContent = styled.div`
 
 export const CartHeader = styled.div`
 
+border-radius: 10px 10px 0px 0px;
 justify-content: space-between;
 display: flex;
 align-items: center;
@@ -86,10 +87,14 @@ li{
 
 export const ComicItem = styled.div`
 
+
+width: 73px !important;
+height: 95px;
+box-shadow: ${props => props.rarity === 'rare' ? '3px 4px 11px green' : '3px 4px 11px black'};
+
 img{
     height: 93px;
     width: 71px;
-    box-shadow: 3px 4px 11px;
 
 }`;
 

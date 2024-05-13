@@ -2,6 +2,8 @@ import { MdClose } from "react-icons/md";
 import { CartHeader, CartList, CloseButton, ComicItem, CupomDiv, ModalContent, ModalOverlay, TotalDiv } from "./styles";
 import { comicList } from "../../scripts/database";
 import { MdDelete } from "react-icons/md";
+import { CartContext } from "../../context/CartContext";
+import { useContext, useEffect, useState } from "react";
 
 
 
@@ -9,7 +11,22 @@ export const CartModal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
 
+    const {cartItems} = useContext(CartContext);
+    
+    const {removeFromCart} = useContext(CartContext);
 
+
+    // useEffect(() => {
+
+
+    // },)
+    
+
+
+    const handleRemove = (comic) => {
+    
+
+    }
 
     return (
 
@@ -25,16 +42,20 @@ export const CartModal = ({ isOpen, onClose }) => {
                 <CartList>
 
                     {
-                        comicList.map((comic) => (
+                        cartItems.map((comic) => (
                             <li key={comic.id}>
-                                <ComicItem>
+                                <ComicItem rarity={comic.rarity}>
                                     <img src={comic.imagem} alt="comic cover" />
                                 </ComicItem>
 
+                            <div>
+                                <p>{`$ ${comic.price}`}</p>
+                            </div>
 
                                 <div>
-                                    <input type="text" />
-                                    <MdDelete size={20} color="black" />
+                                    <p>QTY</p>
+                                    <input type="number" />
+                                    <MdDelete size={20} color="black" onClick={() => removeFromCart(comic.id)}/>
                                 </div>
 
                             </li>

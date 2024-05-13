@@ -14,6 +14,9 @@ export const ProductList = () => {
  
     const { currentID, setCurrentID } = useContext(CartContext);
 
+    const {addToCart} = useContext(CartContext);
+
+ 
     useEffect(() => {
         console.log(currentID)
 
@@ -23,7 +26,6 @@ export const ProductList = () => {
 
     return (
         <>
-            {/* <div> */}
 
             <SearchDiv>
 
@@ -31,14 +33,13 @@ export const ProductList = () => {
                 <FaSearch size={32} color="red" />
             </SearchDiv>
 
-
-            {/* </div> */}
             <ul>
 
                 {
                     comicList.map((comic) => (
                         <li key={comic.id}>
-                            <span>R$ 19,99</span>
+                            
+                            <span>{`$ ${comic.price}`}</span>
 
                                 {comic.rarity === "rare" ? <RareP>RARE</RareP> : null}
                             <ComicsDiv rarity={comic.rarity}>
@@ -48,10 +49,10 @@ export const ProductList = () => {
                             </ComicsDiv>
 
 
-                            <ComicsCardBtn>
+                            <ComicsCardBtn  onClick={() => setCurrentID(comic.id)}>
 
                                 <BuyButton>BUY</BuyButton>
-                                <LiaCartPlusSolid size={32} color="red" onClick={() => setCurrentID(comic.id)}/>
+                                <LiaCartPlusSolid size={32} color="red" onClick={() => addToCart(currentID)}/>
                             </ComicsCardBtn>
 
                         </li>
