@@ -12,6 +12,9 @@ export const MarvelProvider = ({ children }) => {
     const [comics, setComics] = useState([]);
     const [newComicList, setNewComicList] = useState([]);
 
+    const hash = import.meta.env.REACT_APP_HASH;
+    const apiKey = import.meta.env.REACT_APP_API_KEY;
+
 
     useEffect(() => {
         const getCovers = async () => {
@@ -19,8 +22,8 @@ export const MarvelProvider = ({ children }) => {
                 const { data } = await marvelApi.get("/comics", {
                     params: {
                         ts: 1,
-                        apikey: 'f08e1dad392af459458fd0ce81c909f6',
-                        hash: 'f299223d8ece7d3de4e41a1cac9f8a48',
+                        apikey: apiKey,
+                        hash: hash,
                         offset: 0,
                         limit: 99
                     }
@@ -34,7 +37,9 @@ export const MarvelProvider = ({ children }) => {
         };
 
 
-        getCovers();
+        setTimeout(() => {
+            getCovers();
+        }, 1000);
 
     }, []);
 

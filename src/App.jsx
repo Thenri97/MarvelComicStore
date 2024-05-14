@@ -38,10 +38,10 @@ function App() {
       
               <PagesDiv>
               <span>Pages:</span>
-              <span>1</span>
-              <span>2</span>
-              <span>3</span>
-              <span>next</span>
+              <button onClick={() => alert("page 1")}>1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>next</button>
               </PagesDiv>
             
           </ProductListStyle>
